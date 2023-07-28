@@ -75,10 +75,24 @@ example for .gitignore file:
     doc/*.txt
     # ignore all .pdf files in the doc/ directory and any of its subdirectories
     doc/**/*.pdf
-
-
 > Tip: nested .gitignore files apply only to the files under the directory where they are located.
+---
 
+## Rewriting History
+
+### Rebasing
+
+Modify your last commit message:
+
+    git commit --amend
+
+Modify **n<sup>th</sup> commit** from HEAD:
+
+    git rebase -i HEAD~n
+
+    git commit --amend
+
+    git rebase --continue
 ---
 
 ## lower-level commands
@@ -86,3 +100,7 @@ example for .gitignore file:
 - information about files in index/working directory:
 
     `git ls-files`
+
+## Contributing to a Project
+
+Changes you submit may be rendered obsolete or severely broken by work that is merged in while you were working or while your changes were waiting to be approved or applied. How can you keep your code consistently up to date and your commits valid?
