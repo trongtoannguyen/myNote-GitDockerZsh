@@ -76,6 +76,13 @@ example for .gitignore file:
     # ignore all .pdf files in the doc/ directory and any of its subdirectories
     doc/**/*.pdf
 
+
 > Tip: nested .gitignore files apply only to the files under the directory where they are located.
 
 ---
+
+## lower-level commands
+
+- information about files in index/working directory:
+
+    `git ls-files`
