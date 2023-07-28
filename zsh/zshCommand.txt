@@ -1,0 +1,14 @@
+Terminal commands:
+CREATE RANDOM HEX:
+	openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'
+
+ket noi cac chuong trinh:
+	&& 	: dung nhieu lenh 1 lan
+	>, < 	: nhap va xuat
+		ex:	missing:~$ echo hello > hello.txt
+	|	:nối các chương trình với nhau sao cho dữ liệu xuất ra từ chương trình này lại là dữ liệu nhập của chương trình khác
+		ex:	missing:~$ ls -l / | /folder/filename
+
+sao chép nội dung vào bộ đệm:
+	pbcopy < ~/.ssh/id_rsa.pub
+	
