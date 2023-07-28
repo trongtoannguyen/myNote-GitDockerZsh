@@ -1,0 +1,46 @@
+- Add Remote Command:
+	git remote add origin https://github.com/ToniMorgen/repo_name.git
+
+- Add submodule:
+	git submodule add <url> folder/folder/folder/file
+
+- Git push:
+	git push -u origin main
+
+- Save changes that not been committed :
+	git stash
+
+- Using "force push":
+	git push -f origin master
+
+
+- After adding a local folder:
+	Remove .git folder inside of untracked submodule.
+	Run git rm --cached <submodule_name>. (-rf inside the submodule, which was the key for me.)
+ 	git add . (in parent or root folder and you are good to go.)
+
+- Rename directory command:
+	git mv oldFolder newFolder
+
+- git diff: see what is still unstaged
+	 --cached: see what you’ve staged so far
+
+
+
+
+
+
+==================================
+	.gitignore
+==================================
+
+	$ git rm --cached FILENAME	/* untrack the file before add a rule to ignore.*/
+Xoá lịch sử commit của 1 folder:
+	git filter-branch --tree-filter 'rm -rf folder-name' --prune-empty HEAD
+
+
+
+*.log  # Bỏ qua tất cả các tệp có phần mở rộng là .log
+secret/  # Bỏ qua thư mục có tên là "secret"
+!important.log  # Trừ tệp cụ thể important.log khỏi quy tắc bỏ qua *.log
+
