@@ -95,6 +95,9 @@ Modify **n<sup>th</sup> commit** from HEAD:
     git rebase --continue
 
 > Note: This can lead to unavoiable conflicts when try to modify commits which are assosiated to another commits.
+
+> Question: How to unstage text.txt file, which was contained in **n<sup>th</sup> commit** without conflict to **n+1<sup>th</sup> commit** (this commit contains text.txt as well.)?
+
 ---
 
 ## lower-level commands
