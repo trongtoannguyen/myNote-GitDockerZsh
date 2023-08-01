@@ -93,6 +93,8 @@ Modify **n<sup>th</sup> commit** from HEAD:
     git commit --amend
 
     git rebase --continue
+
+> Note: This can lead to unavoiable conflicts when try to modify commits which are assosiated to another commits.
 ---
 
 ## lower-level commands
