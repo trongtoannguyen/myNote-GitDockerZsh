@@ -4,7 +4,7 @@
 - Add submodule:
 	git submodule add <url> folder/folder/folder/file
 
-- Git push:
+- Git push and--set-upstream :
 	git push -u origin main
 
 - Save changes that not been committed :
@@ -44,3 +44,48 @@ Xoá lịch sử commit của 1 folder:
 secret/  # Bỏ qua thư mục có tên là "secret"
 !important.log  # Trừ tệp cụ thể important.log khỏi quy tắc bỏ qua *.log
 
+==================================
+        git fetch
+==================================
+
+
+==================================
+        git pull
+==================================
+
+pull rebase:
+pull fast-forward:
+
+==================================
+        basic Merging
+==================================
+I:direct ancestor(fast-forward)
+							master
+							|
+					A---B---C---D 
+								|
+								hotfix 
+	      
+$ git checkout master
+$ git merge hotfix
+								hotfix
+								master
+								|	
+					A---B---C---D			 
+
+----------------------
+
+II:is’t a direct ancestor
+							master	    
+							|			
+					A---B---C---D
+							 \	 
+	     					  E---F
+							 	  |
+								  iss53
+$ git checkout master
+$ git merge iss53
+            	   
+					A---B---C---D-------G master
+							 \     	   /
+							  E-------F  iss53
