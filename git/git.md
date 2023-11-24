@@ -16,24 +16,24 @@
 
 - stage all:
 
-    `git add -a`
+  `git add -a`
 
 - stage the child files of 2 subfolders in a Git repository:
 
-    `git add path/to/subfolder1/* path/to/subfolder2/*`
+  `git add path/to/subfolder1/* path/to/subfolder2/*`
 
 ### Removing Files
 
-    git rm 
+    git rm
     [-f | --force]
     [-r] allow recursive removal
     [--cached] only remove from the index
 
->Remove files and  stages the file’s removal.
+> Remove files and stages the file’s removal.
 
 ### Git Restore
 
-Let’s say you’ve changed two files and want to commit them as two separate changes, but you accidentally type **git add *** and stage them both. How can you unstage one of the two?
+Let’s say you’ve changed two files and want to commit them as two separate changes, but you accidentally type **git add \*** and stage them both. How can you unstage one of the two?
 
     git restore --staged <file>...
 
@@ -50,7 +50,7 @@ Example:
     git reset --mixed HEAD~
     git reset --hard HEAD~
 
->Warning: **Flag (--hard)** is dangerous command.
+> Warning: **Flag (--hard)** is dangerous command.
 
 ### Ignoring Files
 
@@ -75,7 +75,9 @@ example for .gitignore file:
     doc/*.txt
     # ignore all .pdf files in the doc/ directory and any of its subdirectories
     doc/**/*.pdf
+
 > Tip: nested .gitignore files apply only to the files under the directory where they are located.
+
 ---
 
 ## Rewriting History
@@ -98,13 +100,21 @@ Modify **n<sup>th</sup> commit** from HEAD:
 
 > Question: How to unstage text.txt file, which was contained in **n<sup>th</sup> commit** without conflict to **n+1<sup>th</sup> commit** (this commit contains text.txt as well.)?
 
+### Splitting Commit
+
+    using rebase -i
+
+    git reset HEAD^
+
+    git rebase --continue
+
 ---
 
 ## lower-level commands
 
 - information about files in index/working directory:
 
-    `git ls-files`
+  `git ls-files`
 
 ## Contributing to a Project
 
