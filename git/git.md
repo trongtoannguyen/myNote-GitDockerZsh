@@ -108,6 +108,14 @@ Modify **n<sup>th</sup> commit** from HEAD:
 
     git rebase --continue
 
+### Squashing Commits
+
+If you want to make a single commit from these three commits
+
+    pick f7f3f6d Change my name a bit
+    squash 310154e Update README formatting and add blame
+    squash a5f4a0d Add cat-file
+
 ---
 
 ## lower-level commands
