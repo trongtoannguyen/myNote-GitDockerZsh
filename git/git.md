@@ -52,6 +52,19 @@ Example:
 
 > Warning: **Flag (--hard)** is dangerous command.
 
+Remove last commit from remote Git repository
+
+    A->B->C->D[HEAD, ORIGIN]
+
+how can I go to
+
+    A->B->C[HEAD,ORIGIN]
+
+Command:
+
+    git reset HEAD^ # remove commit locally
+    git push origin +HEAD # force-push the new HEAD commit
+
 ### Ignoring Files
 
 - Start `#` are ignored.
@@ -127,3 +140,7 @@ If you want to make a single commit from these three commits
 ## Contributing to a Project
 
 Changes you submit may be rendered obsolete or severely broken by work that is merged in while you were working or while your changes were waiting to be approved or applied. How can you keep your code consistently up to date and your commits valid?
+
+```
+
+```
