@@ -16,39 +16,51 @@
 
 - stage all:
 
-  `git add -a`
+  ```bash
+  git add -a
+  ```
 
 - stage the child files of 2 subfolders in a Git repository:
 
-  `git add path/to/subfolder1/* path/to/subfolder2/*`
+  ```bash
+  git add path/to/subfolder1/* path/to/subfolder2/*
+  ```
 
 ### Removing Files
 
-    git rm
+```bash
+git rm
     [-f | --force]
     [-r] allow recursive removal
     [--cached] only remove from the index
+```
 
 > Remove files and stages the file’s removal.
 
-### Git Restore
+### `Git restore`
 
 Let’s say you’ve changed two files and want to commit them as two separate changes, but you accidentally type **git add \*** and stage them both. How can you unstage one of the two?
 
-    git restore --staged <file>...
+```bash
+git restore --staged <file>...
+```
 
 > Warning: dangerous command.
 
-### Git reset
+### `Git reset`
 
-    git reset
-    [--mixed | --soft | --hard | --merge | --keep] [<commit>]
+```bash
+git reset
+[--mixed | --soft | --hard | --merge | --keep] [<commit>]
+```
 
 Example:
 
-    git reset --soft HEAD~
-    git reset --mixed HEAD~
-    git reset --hard HEAD~
+```bash
+git reset --soft HEAD~
+git reset --mixed HEAD~
+git reset --hard HEAD~
+```
 
 > Warning: **Flag (--hard)** is dangerous command.
 
@@ -62,8 +74,32 @@ how can I go to
 
 Command:
 
-    git reset HEAD^ # remove commit locally
-    git push origin +HEAD # force-push the new HEAD commit
+```bash
+git reset HEAD^ # remove commit locally
+git push origin +HEAD # force-push the new HEAD commit
+```
+
+Remove 3 last commits from remote Git repository
+
+    A->B->C->D->E[HEAD, ORIGIN]
+
+how can I go to
+
+    A->B[HEAD,ORIGIN]
+
+Command:
+
+```bash
+git reset HEAD~3 # remove commit locally
+git push origin +HEAD # force-push the new HEAD commit
+```
+
+### Undo `Git reset`
+
+```bash
+git reflog
+git reset --hard <commit>
+```
 
 ### Ignoring Files
 
@@ -76,18 +112,20 @@ Command:
 
 example for .gitignore file:
 
-    # ignore all .a files:
-    *.a
-    # but do track lib.a, even though you're ignoring .a files above
-    !lib.a
-    # only ignore the TODO file in the current directory, not subdir/TODO
-    /TODO
-    # ignore all files in any directory named build
-    build/
-    # ignore doc/notes.txt, but not doc/server/arch.txt
-    doc/*.txt
-    # ignore all .pdf files in the doc/ directory and any of its subdirectories
-    doc/**/*.pdf
+```bash
+# ignore all .a files:
+*.a
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+# ignore all files in any directory named build
+build/
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+```
 
 > Tip: nested .gitignore files apply only to the files under the directory where they are located.
 
@@ -99,35 +137,65 @@ example for .gitignore file:
 
 Modify your last commit message:
 
-    git commit --amend
+```bash
+git commit --amend
+```
 
 Modify **n<sup>th</sup> commit** from HEAD:
 
-    git rebase -i HEAD~n
+```bash
+git rebase -i HEAD~n
 
-    git commit --amend
+git commit --amend
 
-    git rebase --continue
+git rebase --continue
+```
 
 > Note: This can lead to unavoiable conflicts when try to modify commits which are assosiated to another commits.
 
 > Question: How to unstage text.txt file, which was contained in **n<sup>th</sup> commit** without conflict to **n+1<sup>th</sup> commit** (this commit contains text.txt as well.)?
 
-### Splitting Commit
+### Splitting
 
-    using rebase -i
-
-    git reset HEAD^
-
-    git rebase --continue
+...
 
 ### Squashing Commits
 
 If you want to make a single commit from these three commits
 
-    pick f7f3f6d Change my name a bit
-    squash 310154e Update README formatting and add blame
-    squash a5f4a0d Add cat-file
+```bash
+git reset --soft HEAD~3
+git commit
+```
+
+or
+
+```bash
+git rebase -i HEAD~3
+```
+
+> after that replace following before targeted commits:
+>
+> `pick`: is for the commit you want to keep.
+>
+> `squash`: is for the commit you want to merge into the previous commit.
+>
+> `drop`: is for the commit you want to remove.
+>
+> `edit`: is for the commit you want to modify.
+>
+> `reword`: is for the commit you want to modify the commit message.
+>
+> `skip`: is for the commit you want to skip.
+>
+> `fixup`: is for the commit you want to merge into the previous commit without modifying the commit message.
+
+```bash
+pick f7f3f6d Change my name a bit
+squash 310154e Update README formatting and add blame
+squash a5f4a0d Add cat-file
+git rebase --continue
+```
 
 ---
 
@@ -135,7 +203,9 @@ If you want to make a single commit from these three commits
 
 - information about files in index/working directory:
 
-  `git ls-files`
+  ```bash
+  git ls-files
+  ```
 
 ## Contributing to a Project
 
