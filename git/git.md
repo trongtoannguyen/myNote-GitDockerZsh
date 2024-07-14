@@ -2,13 +2,13 @@
 
 ## Definitaion
 
-    Working tree.
-    Index.
-    HEAD.
+- Working tree.
+- Index.
+- HEAD.
 
-    Working Tree.
-    Staging are.
-    Git directory.
+- Working Tree.
+- Staging are.
+- Git directory.
 
 ## Git Commands
 
@@ -66,11 +66,11 @@ git reset --hard HEAD~
 
 Remove last commit from remote Git repository
 
-    A->B->C->D[HEAD, ORIGIN]
+  A->B->C->D[HEAD, ORIGIN]
 
 how can I go to
 
-    A->B->C[HEAD,ORIGIN]
+  A->B->C[HEAD,ORIGIN]
 
 Command:
 
@@ -81,11 +81,11 @@ git push origin +HEAD # force-push the new HEAD commit
 
 Remove 3 last commits from remote Git repository
 
-    A->B->C->D->E[HEAD, ORIGIN]
+  A->B->C->D->E[HEAD, ORIGIN]
 
 how can I go to
 
-    A->B[HEAD,ORIGIN]
+  A->B[HEAD,ORIGIN]
 
 Command:
 
@@ -130,6 +130,36 @@ doc/**/*.pdf
 > Tip: nested .gitignore files apply only to the files under the directory where they are located.
 
 ---
+
+## Git Writting
+
+### Merging
+
+```bash
+git merge $BRANCH
+```
+
+To do a **safe merge**:
+
+- Strategy 1: The safe way – merge off a temporary branch:
+
+  ```bash
+  git checkout $myBranch
+  git checkout -b $mynewTemporaryBranch
+  git merge $someOtherBranch
+  ```
+
+- Strategy 2: pass in the --no-commit flag, also pass in --no-ff
+
+  ```bash
+  git merge --no-commit --no-ff $BRANCH
+  ```
+
+- **Undo the merge**:
+
+  ```bash
+  git merge --abort
+  ```
 
 ## Rewriting History
 
@@ -194,7 +224,8 @@ git rebase -i HEAD~3
 pick f7f3f6d Change my name a bit
 squash 310154e Update README formatting and add blame
 squash a5f4a0d Add cat-file
-git rebase --continue
+
+$ git rebase --continue
 ```
 
 ---
@@ -211,6 +242,3 @@ git rebase --continue
 
 Changes you submit may be rendered obsolete or severely broken by work that is merged in while you were working or while your changes were waiting to be approved or applied. How can you keep your code consistently up to date and your commits valid?
 
-```
-
-```
